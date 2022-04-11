@@ -1,0 +1,12 @@
+.main{
+    position: relative;
+    border: 1px solid;
+    width: 60%;
+    margin-left: 20%;
+    border-spacing: 1px;
+}
+td{
+    text-align: center;
+    border: 1px solid;
+    /* width: auto; */
+}

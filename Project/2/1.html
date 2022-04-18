@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>survey</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function yesno(that) {
+      if (that.value == "yes") {
+    // alert("Enter the project code");
+          document.getElementById("ifYes").style.display = "block";
+      } else {
+          document.getElementById("ifYes").style.display = "none";
+      }
+    }
+    </script>
+    
+</head>
+<body>
+    
+    <form>
+        <h1 style="text-align: center; font-size: large;">Employee Survey Form</h1>
+        <label for="EID">
+            Employee ID/SAP ID
+        </label>
+        <input type="text" id="EID" name="ID" placeholder="Enter your Employee ID">
+
+        <label for="fname">First Name</label>
+        <input type="text" name="fname" id="firstname" placeholder="Enter your first Name">
+        <label for="lname">Last Name</label>
+        <input type="text" name="lname" id="lastname" placeholder="Enter your last Name">
+        <label for="location">Location</label>
+        <select name="location" id="location">
+            <optgroup label="South Region"></optgroup>
+            <option value="Banglore">Banglore</option>
+            <option value="Chennai">Chennai</option>
+            <optgroup label="West Region"></optgroup>
+            <option value="Pune">Pune</option>
+            <option value="Mumbai">Mumbai</option>
+            <optgroup label="North Region"></optgroup>
+            <option value="Noida">Noida</option>
+            <option value="Gurugram">Gurugram</option>
+        </select>
+        <br>
+        <label for="option">Currently working on a project</label>
+        
+        <select onchange="yesno(this)">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>            
+        </select>
+        <div id="ifYes" style="display: none;">
+            <label for="car">Project Code: </label> <input type="text" id="car" name="car" /><br/>
+        </div>
+<br>
+        <br>
+        <label for="option">Select the preferred location to work from:</label>
+        <br>
+        <fieldset>
+            <label for="option">Work from Home</label>
+            <input type="radio" id="whf" name="opt">
+        </fieldset>
+        <!-- <br> -->
+        <fieldset style="margin-top: 5px;">
+            <label for="option">Work from Office</label>
+            <input type="radio" id="wfo" name="opt">
+        </fieldset>
+        
+        <br>
+        <input type="submit" value="Submit" name="" id="">
+    </form>
+</body>
+</html>

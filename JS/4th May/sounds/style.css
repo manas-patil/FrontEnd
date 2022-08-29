@@ -1,0 +1,33 @@
+body{
+    /* background-color: black; */
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+}
+.btn{
+    width: 250px;
+    height: 60px;
+    margin: 15px;
+    border-radius: 5px;
+    outline:black;
+    background-color: yellow;
+    font-size: large;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.btn:hover{
+    opacity: 1;
+    /* color: white; */
+    /* opacity: inherit; */
+}
+
+.btn:hover,.stop:hover {
+    opacity: 0.9;
+  }
+  
+  .btn:focus,.stop:focus {
+    outline: none;
+  }
+  

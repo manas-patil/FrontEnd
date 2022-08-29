@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            font-family: sans-serif;
+            font-size: 15px;
+        }
+        input[type=text]{
+            width: 40%;
+            padding: 12px 15px ;
+            margin: 10px 0;
+            border: 2px solid rgb(0, 0, 0);
+            box-sizing: border-box;
+            font-weight:lighter;
+        }
+        input[type=password]{
+            width: 40%;
+            padding: 12px 15px ;
+            margin: 10px 0;
+            border: 2px solid rgb(0, 0, 0);
+            box-sizing: border-box;
+            font-weight:lighter;
+        }
+        input[type=submit]{
+            background: rgb(85, 201, 124);
+            padding: 10px 30px ;
+            margin: 10px 0 ;
+            border: 1px solid white;
+            color: white;
+        }
+        form{
+            border-radius: 5px;
+            padding: 5%;
+            background: rgb(235, 231, 231);
+        }
+        input[type=submit]:hover{
+            cursor: pointer;
+            background: rgb(30, 117, 30);
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form id="form" onsubmit="saveUserCredentials()">
+            <label for="username">Enter Username:</label><br>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Enter Password: </label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <input type="submit" value="Signup">
+        </form>
+    </div>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+    <script>
+        const form = document.querySelector('#form');
+        const usernameField = document.querySelector('#username');
+        const passwordField = document.querySelector('#password');
+        const tbody = document.querySelector('#tbody');
+        let data = "";
+        function saveUserCredentials() {
+            data = "";
+            event.preventDefault();
+            let existingEntries = JSON.parse(localStorage.getItem("usersCredentials"));
+            if (existingEntries == null) existingEntries = [];
+            var obj = {
+                usernameField: usernameField.value,
+                passwordField: passwordField.value
+            }
+            existingEntries.push(obj);
+            localStorage.setItem("usersCredentials", JSON.stringify(existingEntries));
+            usernameField.value = "";
+            passwordField.value = "";
+            for(let i=0;i<existingEntries.length;i++){
+                data += "<tr><td>"+existingEntries[i].usernameField+"</td><td>"+existingEntries[i].passwordField+"</td></tr>";
+            }
+            tbody.innerHTML = data;
+        }
+    </script>
+</body>
+</html>
